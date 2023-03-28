@@ -7,6 +7,9 @@ class Airport(models.Model):
 
     def __str__(self):
         return f"{self.city}({self.code})"
+    
+
+    
 
 
 class Flight(models.Model):
@@ -16,6 +19,10 @@ class Flight(models.Model):
 
     def __str__(self):
         return f"{self.id}: from {self.origin} to {self.destination}."
+    
+
+    def is_valid_flight(self):
+        return self.origin != self.destination and self.duration >= 0
 
 
 class Passenger(models.Model):
